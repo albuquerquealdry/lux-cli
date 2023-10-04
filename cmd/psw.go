@@ -17,7 +17,10 @@ var pswCmd = &cobra.Command{
 	Long: `Generate yours passwords:
 
 	lux psw --t 10
-	lux psw --t len_your_password`,
+	lux psw --t len_your_password
+	lux psw --l 5
+	lux psw --t len logic password`,
+
 	Run: func(cmd *cobra.Command, args []string) {
 		len, _ := cmd.Flags().GetInt("t")
 		logic, _ := cmd.Flags().GetInt("l")
