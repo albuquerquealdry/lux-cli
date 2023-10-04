@@ -20,11 +20,18 @@ var pswCmd = &cobra.Command{
 	lux psw --t len_your_password`,
 	Run: func(cmd *cobra.Command, args []string) {
 		len, _ := cmd.Flags().GetInt("t")
-		fmt.Println(utils.GeneratePassword(len))
+		logic, _ := cmd.Flags().GetInt("l")
+		if len > 8 {
+			fmt.Println(utils.GeneratePassword(len))
+		} else {
+			fmt.Println(utils.GenerateLogicPassword(logic))
+		}
+
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(pswCmd)
-	pswCmd.PersistentFlags().Int("t", 12, "Len of password")
+	pswCmd.PersistentFlags().Int("t", 2, "Len of password")
+	pswCmd.PersistentFlags().Int("l", 1, "Len of password")
 }

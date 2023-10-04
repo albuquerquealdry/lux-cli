@@ -10,7 +10,7 @@ import (
 func CheckerTLS(s string) string {
 	conn, err := tls.Dial("tcp", s+":443", nil)
 	if err != nil {
-		fmt.Println("Server doesn't support SSL certificate err: " + err.Error())
+		fmt.Println("Server doesn't exist: " + err.Error())
 		os.Exit(1)
 	}
 
